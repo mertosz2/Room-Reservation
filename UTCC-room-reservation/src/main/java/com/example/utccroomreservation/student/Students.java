@@ -1,15 +1,17 @@
 package com.example.utccroomreservation.student;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Students {
 
     @Id
@@ -17,8 +19,12 @@ public class Students {
 
     private Long studentNumber;
 
+    private String email;
+
     private String password;
 
     private String name;
+
+    private String phone;
 }
 
