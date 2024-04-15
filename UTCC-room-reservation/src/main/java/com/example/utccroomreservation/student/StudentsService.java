@@ -2,6 +2,7 @@ package com.example.utccroomreservation.student;
 
 import com.example.utccroomreservation.security.Role;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -10,9 +11,11 @@ import java.util.Random;
 public class StudentsService {
 
     private final StudentsRepository studentsRepository;
+    private final PasswordEncoder encoder;
 
-    public StudentsService(StudentsRepository studentsRepository) {
+    public StudentsService(StudentsRepository studentsRepository, PasswordEncoder encoder) {
         this.studentsRepository = studentsRepository;
+        this.encoder = encoder;
     }
 
     public String createStudent(StudentRequest studentRequest){
@@ -21,7 +24,7 @@ public class StudentsService {
                 .studentId(randomId)
                 .studentNumber(studentRequest.getStudentNumber())
                 .name(studentRequest.getName())
-                .password(studentRequest.getPassword())
+                .password(encoder.encode(studentRequest.getPassword()))
                 .email(studentRequest.getEmail())
                 .phone(studentRequest.getPhone())
                 .role(Role.STUDENT)
