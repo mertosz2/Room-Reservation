@@ -24,7 +24,7 @@ public class Students implements UserDetails {
     @Id
     private Long studentId;
 
-    private Long studentNumber;
+    private String studentNumber;
 
     private String email;
 

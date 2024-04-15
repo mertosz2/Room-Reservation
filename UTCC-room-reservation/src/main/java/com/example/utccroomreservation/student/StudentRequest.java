@@ -17,7 +17,7 @@ public class StudentRequest {
 
     @NotEmpty(message = "studentNumber can not be null or empty")
     @Pattern(regexp = "^($|[0-9]{13})")
-    private Long studentNumber;
+    private String studentNumber;
 
     @NotEmpty(message = "password can not be null or empty")
     @Size(min = 6)
