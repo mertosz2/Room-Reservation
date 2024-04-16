@@ -1,8 +1,6 @@
 package com.example.utccroomreservation.security;
 
-import com.example.utccroomreservation.student.LoginRequest;
-import com.example.utccroomreservation.student.Students;
-import com.example.utccroomreservation.student.StudentsRepository;
+import com.example.utccroomreservation.student.*;
 import org.springframework.security.authentication.AuthenticationManager;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,6 +13,8 @@ public class AuthService {
     private final JwtService jwtService;
     private final StudentsRepository studentsRepository;
     private final AuthenticationManager authenticationManager;
+
+
 
     public AuthService(JwtService jwtService, StudentsRepository studentsRepository, AuthenticationManager authenticationManager) {
         this.jwtService = jwtService;
@@ -34,7 +34,7 @@ public class AuthService {
         Students students = studentsRepository.findByStudentNumber(request.getUsername()).orElseThrow(
                 () -> new UsernameNotFoundException("student not found")
         );
-        String token = jwtService.generateToken(students);
-        return token;
+
+        return jwtService.generateToken(students);
     }
 }

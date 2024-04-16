@@ -1,7 +1,6 @@
 package com.example.utccroomreservation.security;
 
 import com.example.utccroomreservation.student.Students;
-import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -46,7 +45,7 @@ public class JwtService {
                 .builder()
                 .setSubject(students.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(1)))
+                .setExpiration(new Date(System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(10)))
                 .signWith(Keys.hmacShaKeyFor(SECRET_KET.getBytes()), SignatureAlgorithm.HS256)
                 .compact();
         return token;

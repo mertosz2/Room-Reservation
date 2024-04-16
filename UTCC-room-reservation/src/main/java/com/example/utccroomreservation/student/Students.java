@@ -43,12 +43,13 @@ public class Students implements UserDetails {
 
     @Override
     public String getUsername() {
-        return studentNumber.toString();
+        return studentNumber;
     }
+
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override

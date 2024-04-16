@@ -12,13 +12,14 @@ public class AuthenticationService implements UserDetailsService {
 
     private final StudentsRepository studentsRepository;
 
+
     public AuthenticationService(StudentsRepository studentsRepository) {
         this.studentsRepository = studentsRepository;
     }
 
 
     @Override
-    public UserDetails loadUserByUsername(String studentNumber) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String studentNumber) {
         return studentsRepository.findByStudentNumber(studentNumber).orElseThrow(
                 () -> new UsernameNotFoundException("student not found")
         );
