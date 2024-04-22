@@ -34,4 +34,10 @@ public class StudentRequest {
     @NotEmpty(message = "email can not be null or empty")
     @Email(message = "email example 2xxxxxxxxxx@live4.utcc.ac.th")
     private String email;
+
+    @NotEmpty(message = "faculty can not be null or empty")
+    private String faculty;
+
+    @NotEmpty(message = "major can not be null or empty")
+    private String major;
 }

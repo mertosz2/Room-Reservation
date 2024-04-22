@@ -34,6 +34,10 @@ public class Students implements UserDetails {
 
     private String phone;
 
+    private String faculty;
+
+    private String major;
+
     private Role role;
 
     @Override
