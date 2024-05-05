@@ -15,14 +15,15 @@ services:
       - my-network
 
   spring-boot-app:
+    depends_on:
+      - mysql
     build: .
 
     ports:
       - "8888:8888"
     networks:
       - my-network
-    depends_on:
-      - mysql
+
 
 networks:
   my-network:
