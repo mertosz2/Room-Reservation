@@ -1,6 +1,7 @@
 package com.example.utccroomreservation.security;
 
 
+import com.example.utccroomreservation.student.Students;
 import com.example.utccroomreservation.student.StudentsRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,7 +20,7 @@ public class AuthenticationService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String studentNumber) {
+    public Students loadUserByUsername(String studentNumber) {
         return studentsRepository.findByStudentNumber(studentNumber).orElseThrow(
                 () -> new UsernameNotFoundException("student not found")
         );
