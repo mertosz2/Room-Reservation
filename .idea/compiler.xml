@@ -10,5 +10,10 @@
         <module name="UTCC-room-reservation.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Reservation" target="17" />
+      <module name="Reservation.main" target="17" />
+      <module name="Reservation.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
