@@ -25,6 +25,13 @@ public class StudentsController {
         );
     }
 
+    @PostMapping("/admin")
+    public ResponseEntity<String> createAdmin(@Valid @RequestBody StudentRequest studentRequest){
+        return ResponseEntity.status(CREATED).body(
+                studentsService.createAdmin(studentRequest)
+        );
+    }
+
     @GetMapping("/test/{studentNumber}")
     public ResponseEntity<Students> findByNumber(@PathVariable String studentNumber){
         return ResponseEntity.ok().body(
