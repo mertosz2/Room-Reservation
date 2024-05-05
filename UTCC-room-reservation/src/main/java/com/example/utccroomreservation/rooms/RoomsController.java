@@ -34,4 +34,11 @@ public class RoomsController {
                 roomsService.getRoomsFromBuilding(buildingNumber)
         );
     }
+
+    @GetMapping("{roomNumber}")
+    public ResponseEntity<Rooms> getRoomsByRoomNumber(@PathVariable Long roomNumber){
+        return ResponseEntity.status(OK).body(
+                roomsService.getRoomByRoomNumber(roomNumber)
+        );
+    }
 }

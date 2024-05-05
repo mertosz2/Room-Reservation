@@ -1,5 +1,7 @@
 package com.example.utccroomreservation.rooms;
 
+import com.example.utccroomreservation.booking.Booking;
+import com.example.utccroomreservation.exception.RoomNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,8 +34,17 @@ public class RoomsService {
         return "created !";
     }
 
+
+
     public List<Rooms> getRoomsFromBuilding(int buildingNumber){
         List<Rooms> roomsList = roomsRepository.findRoomsByBuilding(buildingNumber);
         return roomsList;
     }
+
+    public Rooms getRoomByRoomNumber(Long roomNumber){
+        return roomsRepository.findByRoomNumber(roomNumber).orElseThrow(
+                () -> new RoomNotFoundException("Room not found with given number")
+        );
+    }
+
 }
