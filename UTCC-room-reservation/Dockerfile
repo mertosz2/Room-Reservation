@@ -9,7 +9,7 @@ RUN ["./gradlew", "bootJar"]
 FROM gcr.io/distroless/java17-debian12:latest
 WORKDIR /app
 EXPOSE 8888
-COPY --from=builder /app/build/libs/UTCC-room-reservation.jar UTCC-room-reservation-0.0.1-SNAPSHOT.jar
+COPY --from=builder /app/build/libs/UTCC-room-reservation-0.0.1-SNAPSHOT.jar UTCC-room-reservation-0.0.1-SNAPSHOT.jar
 
 ADD https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.26/mysql-connector-java-8.0.26.jar /app/mysql-connector-java.jar
 
