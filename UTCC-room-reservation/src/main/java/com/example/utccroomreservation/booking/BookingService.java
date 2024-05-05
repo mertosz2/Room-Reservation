@@ -38,7 +38,7 @@ public class BookingService {
 
         Long id = 100000000L + new Random().nextInt(900000000);
         Rooms rooms = roomsRepository.findByRoomNumber(bookingRequest.getRoomNumber()).orElseThrow(
-                () -> new RoomNotFoundException("Room not found with given room number" + bookingRequest.getRoomNumber())
+                () -> new RoomNotFoundException("Room not found with given room number " + bookingRequest.getRoomNumber())
         );
         Students students = studentsRepository.findByStudentNumber(bookingRequest.getStudentNumber()).orElseThrow(
                 () -> new StudentNotFoundException("Student not found with given id " + bookingRequest.getStudentNumber())
